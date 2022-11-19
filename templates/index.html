@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-indigo-500 to-green-300 h-screen w-screen p-2 overflow-x-hidden">
+    <div class="shadow-lg  p-4 w-full flex justify-center  mx-auto">
+        <div class="flex gap-4 w-full align-middle mx-auto">
+            <img src="/static/logo.png" alt="logo" height="50px" width="50px">
+            <h1 class="text-3xl font-serif  text-center text-[#000000]">MRS</h1>
+        </div>
+    </div>
+    <form action="/" class="mt-4" method="POST">
+        <label for="name" class="text-white   text-center italic  text-2xl block">Enter Movie Name to Predict</label>
+        <div class="w-1/3 bg-white w-screen mx-auto rounded-r-full mt-2 flex justify-middle">
+            <input type="text" class="outline-none rounded-r-full text-lg p-2 " style="width: calc(90%);"
+                placeholder="Name of Movie " name="movie" id="name">
+            <svg class="align-middle my-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24">
+                <path
+                    d="M23.832 19.641l-6.821-6.821c2.834-5.878-1.45-12.82-8.065-12.82-4.932 0-8.946 4.014-8.946 8.947 0 6.508 6.739 10.798 12.601 8.166l6.879 6.879c1.957.164 4.52-2.326 4.352-4.351zm-14.886-4.721c-3.293 0-5.973-2.68-5.973-5.973s2.68-5.973 5.973-5.973c3.294 0 5.974 2.68 5.974 5.973s-2.68 5.973-5.974 5.973z" />
+            </svg>
+        </div>
+    </form>
+
+    {% if movies %}
+    <div id="results" class="w-[90%] mx-auto mt-6 bg-[#c8b0d05e] rounded-lg shadow-lg p-4">
+        <h2 class="font-serif text-2xl text-center font-semibold">Results</h2>
+
+        {% for movie in movies %}
+        <div class="w-[75%] p-3 rounded-md my-2 mx-auto shadow-md bg-[#fffff261]">
+            <p class="text-white text-lg font-semibold ">{{movie}}</p>
+        </div>
+        {% endfor %}
+
+
+    </div>
+    {% endif %}
+</body>
+
+</html>
